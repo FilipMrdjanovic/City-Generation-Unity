@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6055ecc25c731a641a1106682395d7bb, type: 3}
+  m_Name: Rural Area
+  m_EditorClassIdentifier: 
+  city_Quartery: 5
+  noise: 0
+  quality: 0
+  isolation: 0
+  view: 0
+  parking_Loot: 0
+  size: 40
+  duplex: 0
+  rooms: 3
+  toalets: 1
+  terrace: 0
+  value: 85432.79
+  material: {fileID: 2100000, guid: 528cb50bfd9afbf42a8ff67bce429f22, type: 2}
