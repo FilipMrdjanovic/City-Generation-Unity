@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PerlinNoise_Map : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PerlinNoise_Map : MonoBehaviour
     public ObjType blockType;
 
     public GameObject blockGameObject;
+    public GameObject Canvas;
+    public Text text;
+
     public Building[] buildings;
 
     public float worldSizeX = 10;
@@ -73,7 +77,7 @@ public class PerlinNoise_Map : MonoBehaviour
         {
 
         }
-
+        Vector3 maxScale;
         for (int x = 0; x < worldSizeX; x++)
         {
             for (int z = 0; z < worldSizeZ; z++)
@@ -84,7 +88,9 @@ public class PerlinNoise_Map : MonoBehaviour
                 GameObject block = Instantiate(blockGameObject, pos, Quaternion.identity) as GameObject;
 
                 block.transform.SetParent(this.transform);
-                block.transform.localScale = new Vector3(block.transform.localScale.x, pos.y, block.transform.localScale.z);
+                maxScale =  block.transform.localScale = new Vector3(block.transform.localScale.x, pos.y, block.transform.localScale.z);
+
+                StartCoroutine(BuildBlock(1f, 0.01f, block, Vector3.zero, maxScale)); // Transition from scale 0 to intended scale
 
                 if (blockType == ObjType.Building)
                 {
@@ -180,6 +186,18 @@ public class PerlinNoise_Map : MonoBehaviour
         float zNoise = (z + this.transform.position.z) / detailScale;
 
         return Mathf.PerlinNoise(xNoise, zNoise);
+    }
+
+    IEnumerator BuildBlock(float time, float waitTime, GameObject go, Vector3 minT, Vector3 maxT)
+    {
+        float i = 0f;
+        float rate = (1f / time);
+        while (i < 1f)
+        {
+            i += Time.deltaTime * rate;
+            go.transform.localScale = Vector3.Lerp(minT, maxT, i);
+            yield return new WaitForSeconds(waitTime);
+        }
     }
 
 

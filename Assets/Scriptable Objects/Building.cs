@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 
@@ -14,23 +13,23 @@ public enum View { Bad, Medium, Good };
 public class Building : ScriptableObject
 {
     public City_Quarter city_Quartery;          // Included
-    public Noise noise;                         // Included
-    public Quality quality;                     // Included
-    public Isolation isolation;                 // Included
-    public View view;                           // Included
-    public bool parking_Loot;                   // Included
-    public float size;
-    public bool duplex;                         // Included
-    public int rooms;                           // Included
-    public int toalets;                         // Included
-    public bool terrace;                        // Included
-    public float value;
-    public Material material;
+    public Noise Noise;                         // Included
+    public Quality Quality;                     // Included
+    public Isolation Isolation;                 // Included
+    public View View;                           // Included
+    public bool Parking;                        // Included
+    public float Size;                          // Calculating
+    public bool Duplex;                         // Included
+    public int Rooms;                           // Included
+    public int Toalets;                         // Included
+    public bool Terrace;                        // Included
+    public float Value;                         // Calculating
+    public Material material;                   // Included
 
 
     public void ReturnValue(Building building, float distance)
     {
-        float noiseParameter = 0, qualityParameter = 0, isolationParameter = 0, viewParameter = 0,roomParameter = 0, toalerParameter = 0;
+        float noiseParameter = 0, qualityParameter = 0, isolationParameter = 0, viewParameter = 0,roomParameter = 0, toaletParameter = 0;
         float valuePerSquare;
         switch (building.city_Quartery)
         {
@@ -57,7 +56,7 @@ public class Building : ScriptableObject
                 break;
         }
 
-        switch (building.noise)
+        switch (building.Noise)
         {
             case Noise.Low:
                 noiseParameter = 1.3f;
@@ -70,7 +69,7 @@ public class Building : ScriptableObject
                 break;
         }
 
-        switch (building.quality)
+        switch (building.Quality)
         {
             case Quality.High:
                 qualityParameter = 1.3f;
@@ -83,7 +82,7 @@ public class Building : ScriptableObject
                 break;
         }
 
-        switch (building.isolation)
+        switch (building.Isolation)
         {
             case Isolation.High:
                 isolationParameter = 1.3f;
@@ -96,7 +95,7 @@ public class Building : ScriptableObject
                 break;
         }
 
-        switch (building.view)
+        switch (building.View)
         {
             case View.Good:
                 viewParameter = 1.3f;
@@ -109,20 +108,21 @@ public class Building : ScriptableObject
                 break;
         }
 
-        float parkingParamter = building.parking_Loot ? 3000 : 0;
-        float duplexParameter = building.duplex ? 3000 : 0;
-        float terraceameter = building.terrace ? 1500 : 0;
-        for (int i = 0; i < building.rooms; i++)
+        float parkingParamter = building.Parking ? 3000 : 0;
+        float duplexParameter = building.Duplex ? 3000 : 0;
+        float terraceameter = building.Terrace ? 1500 : 0;
+        for (int i = 0; i < building.Rooms; i++)
         {
             roomParameter += 500;
         }
-        for (int i = 0; i < building.toalets; i++)
+        for (int i = 0; i < building.Toalets; i++)
         {
-            toalerParameter += 500;
+            toaletParameter += 500;
         }
-        building.value = size * valuePerSquare * noiseParameter * qualityParameter * isolationParameter * viewParameter 
-            + parkingParamter + duplexParameter + roomParameter + toalerParameter + terraceameter + distance;
+        building.Value = Size * valuePerSquare * noiseParameter * qualityParameter * isolationParameter * viewParameter 
+            + parkingParamter + duplexParameter + roomParameter + toaletParameter + terraceameter + distance;
 
+        building.Value = ((int)Math.Ceiling(building.Value / 100.0)) * 100; // Rounds to nearest number devideable by 100
     }
 
 }

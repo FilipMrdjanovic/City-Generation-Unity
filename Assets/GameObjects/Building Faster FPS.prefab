@@ -121,4 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4ab5fcc7b00e54cbe9da9e34304a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanvasGO: {fileID: 2876911383096724393, guid: e00243b490abcf849852219455c462d5,
+    type: 3}
+  text: {fileID: 0}
+  index: 0
   building: {fileID: 0}
+  map: {fileID: 0}
+  Value: 0
+  distanceParameter: 0

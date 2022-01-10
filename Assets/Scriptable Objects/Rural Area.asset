@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Rural Area
   m_EditorClassIdentifier: 
   city_Quartery: 5
-  noise: 0
-  quality: 0
-  isolation: 0
-  view: 0
-  parking_Loot: 0
-  size: 40
-  duplex: 0
-  rooms: 3
-  toalets: 1
-  terrace: 0
-  value: 85432.79
+  Noise: 0
+  Quality: 0
+  Isolation: 0
+  View: 0
+  Parking: 0
+  Size: 50
+  Duplex: 0
+  Rooms: 5
+  Toalets: 1
+  Terrace: 0
+  Value: 59500
   material: {fileID: 2100000, guid: 528cb50bfd9afbf42a8ff67bce429f22, type: 2}

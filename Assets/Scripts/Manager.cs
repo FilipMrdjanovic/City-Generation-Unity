@@ -16,10 +16,10 @@ public class Manager : MonoBehaviour
 
         float seconds = 3f;
 
-        StartCoroutine(DestroyComponents(seconds, map));
-        StartCoroutine(DestroyComponents(seconds, ground));
+        //StartCoroutine(DestroyComponents(seconds, map));
+        //StartCoroutine(DestroyComponents(seconds, ground));
 
-        StartCoroutine(BuildingTransformation(seconds, map));
+        //StartCoroutine(BuildingTransformation(seconds, map));
 
 
 
@@ -52,7 +52,7 @@ public class Manager : MonoBehaviour
         foreach (Transform child in gameObj.transform)
         {
 
-            //get random size (need to be Vector3 not Vector2) if you want to just change x scale 
+            //get random Size (need to be Vector3 not Vector2) if you want to just change x scale 
             Vector3 randomSize = new Vector3(Random.Range(cubeSizeWidthMin, cubesizeWidthMax), child.transform.localScale.y, Random.Range(cubeSizeWidthMin, cubesizeWidthMax));
 
             //set it to the scale of previously instantiated platform 

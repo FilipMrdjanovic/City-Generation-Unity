@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Ward 3
   m_EditorClassIdentifier: 
   city_Quartery: 3
-  noise: 2
-  quality: 1
-  isolation: 2
-  view: 1
-  parking_Loot: 0
-  size: 50
-  duplex: 1
-  rooms: 4
-  toalets: 2
-  terrace: 1
-  value: 220407.67
+  Noise: 0
+  Quality: 1
+  Isolation: 1
+  View: 2
+  Parking: 1
+  Size: 80
+  Duplex: 0
+  Rooms: 9
+  Toalets: 2
+  Terrace: 1
+  Value: 122500
   material: {fileID: 2100000, guid: c4ce8921fcfbb3a48bf7676ed64f5990, type: 2}

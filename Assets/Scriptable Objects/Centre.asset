@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Centre
   m_EditorClassIdentifier: 
   city_Quartery: 2
-  noise: 2
-  quality: 2
-  isolation: 2
-  view: 2
-  parking_Loot: 1
-  size: 120
-  duplex: 1
-  rooms: 8
-  toalets: 2
-  terrace: 1
-  value: 595842.9
+  Noise: 0
+  Quality: 2
+  Isolation: 2
+  View: 2
+  Parking: 1
+  Size: 150
+  Duplex: 1
+  Rooms: 15
+  Toalets: 2
+  Terrace: 1
+  Value: 136400
   material: {fileID: 2100000, guid: 514f4effcace6654db6fc9a845fcffd5, type: 2}
