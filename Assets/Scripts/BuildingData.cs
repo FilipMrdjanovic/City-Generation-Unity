@@ -45,6 +45,9 @@ public class BuildingData : MonoBehaviour
             case 5:
                 building = map.buildings[5];
                 break;
+            case 6:
+                building = map.buildings[6];
+                break;
         }
 
         distanceParameter = map.maxDistance - Vector2.Distance(map.centerBuildingGameObject.transform.position, transform.position);

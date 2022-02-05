@@ -579,6 +579,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ac241625540694fa4ba1853c725e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &550882509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6663352298499675568, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169947797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &550882514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550882509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa654664e79a7f41baed3dc8ca9b5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &710457871
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,19 +638,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 615a3a3d682f81240a0165c3811ae030, type: 2}
   - {fileID: 11400000, guid: 459fac3583862e84cbef0472056537dc, type: 2}
   - {fileID: 11400000, guid: ccc9622894d668b4dbb715964082ca0f, type: 2}
+  - {fileID: 11400000, guid: 5b0573e616d970c4aba803b403ff242a, type: 2}
   worldSizeX: 60
   worldSizeZ: 60
-  noiseHeight: 15
-  gridOffset: 7
-  objectHeightOffset: -10
-  actualSize: 0
-  gameObjectScale: 0
+  noiseHeight: 5
+  gridOffset: 6
+  objectHeightOffset: 10
+  actualSize: 2
+  gameObjectScale: 2
   centerGameObject: {fileID: 0}
   centerBuildingGameObject: {fileID: 0}
   randomizeHeight: 3
   scale: 0
   buildingsCopied: []
   maxDistance: 0
+  perlinNoiseObject: {fileID: 550882509}
+  mat: {fileID: 2100000, guid: f737c346aa5249f47a8801fe18dbe1fb, type: 2}
 --- !u!4 &710457873
 Transform:
   m_ObjectHideFlags: 0
@@ -647,6 +668,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1169947797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 184
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212324045154794433, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755506141266652126, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663352298499675568, guid: 7f97a168a8ff0e4408ecf20f1da70c85,
+        type: 3}
+      propertyPath: m_Name
+      value: Plane
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f97a168a8ff0e4408ecf20f1da70c85, type: 3}
 --- !u!1 &1345732950
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +781,7 @@ Terrain:
   m_GameObject: {fileID: 1345732950}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: 0c9945ed625c8d24c99cba67bf01f893, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -740,12 +835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f39ca538c52434eb27f5f72d998bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 2
-  width: 100
-  height: 100
-  scale: 20
-  offsetX: 0
-  offsetY: 0
 --- !u!1 &1504407753
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,17 +873,19 @@ MonoBehaviour:
   buildings: []
   worldSizeX: 150
   worldSizeZ: 150
-  noiseHeight: 40
-  gridOffset: 1
-  objectHeightOffset: 40
-  actualSize: 0
-  gameObjectScale: 4
+  noiseHeight: 2
+  gridOffset: 2
+  objectHeightOffset: 3
+  actualSize: 3
+  gameObjectScale: 3
   centerGameObject: {fileID: 0}
   centerBuildingGameObject: {fileID: 0}
   randomizeHeight: 3
   scale: 0
   buildingsCopied: []
   maxDistance: 0
+  perlinNoiseObject: {fileID: 550882509}
+  mat: {fileID: 0}
 --- !u!4 &1504407755
 Transform:
   m_ObjectHideFlags: 0
@@ -851,7 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeSizeWidthMin: 1
-  cubesizeWidthMax: 2
+  cubesizeWidthMax: 4
 --- !u!4 &1885638180
 Transform:
   m_ObjectHideFlags: 0

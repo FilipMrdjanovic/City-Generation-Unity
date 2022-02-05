@@ -39,6 +39,10 @@ public class PerlinNoise_Map : MonoBehaviour
 
     public float maxDistance;
 
+    public GameObject perlinNoiseObject;
+
+    public Material mat;
+
     private void Start()
     {
         PerlinNoise_Map map = GameObject.FindGameObjectWithTag("Buildings").GetComponent<PerlinNoise_Map>();
@@ -73,27 +77,26 @@ public class PerlinNoise_Map : MonoBehaviour
         scale = worldSizeX / 5f;
 
         actualSize = worldSizeX * gridOffset;
-        if (blockType == ObjType.Building)
-        {
 
-        }
         Vector3 maxScale;
         for (int x = 0; x < worldSizeX; x++)
         {
             for (int z = 0; z < worldSizeZ; z++)
             {
 
-                Vector3 pos = new Vector3(x * gridOffset, GenerateNoise(x, z, 8f) * noiseHeight, z * gridOffset);
+                Vector3 pos = new Vector3(x * gridOffset, GenerateNoise(x, z, 8f, blockType == ObjType.Building) * noiseHeight, z * gridOffset);
 
                 GameObject block = Instantiate(blockGameObject, pos, Quaternion.identity) as GameObject;
 
                 block.transform.SetParent(this.transform);
                 maxScale =  block.transform.localScale = new Vector3(block.transform.localScale.x, pos.y, block.transform.localScale.z);
 
-                StartCoroutine(BuildBlock(1f, 0.01f, block, Vector3.zero, maxScale)); // Transition from scale 0 to intended scale
+                //StartCoroutine(BuildBlock(1f, 0.01f, block, Vector3.zero, maxScale)); // Transition from scale 0 to intended scale
 
                 if (blockType == ObjType.Building)
                 {
+
+
                     block.name = "Building: " + buildingCount;
 
                     offsetY = ground.objectHeightOffset;
@@ -106,6 +109,14 @@ public class PerlinNoise_Map : MonoBehaviour
 
                     block.GetComponent<BuildingData>().index = 5;
                     block.GetComponent<Renderer>().material = buildings[5].material;
+
+                    if (block.gameObject.transform.localScale.y <= 0.1)
+                    {
+                        block.gameObject.transform.localScale = Vector3.one;
+
+                        block.GetComponent<BuildingData>().index = 6;
+                        block.GetComponent<Renderer>().material = buildings[6].material;
+                    }
 
                     if (buildingCount == (int)quarter1)
                     {
@@ -129,6 +140,7 @@ public class PerlinNoise_Map : MonoBehaviour
                     }
 
                     buildingCount++;
+         
                 }
                 else
                 {
@@ -165,6 +177,10 @@ public class PerlinNoise_Map : MonoBehaviour
             centerBuildingGameObject = map.gameObject.transform.GetChild((int)(worldSizeX*worldSizeZ)/2).gameObject;
             maxDistance = Vector2.Distance(centerBuildingGameObject.transform.position, map.gameObject.transform.GetChild(map.gameObject.transform.childCount - 1).transform.position) * 1.5f;
         }
+
+        perlinNoiseObject.transform.localScale = new Vector3(worldSizeX / 3, 1, worldSizeX / 3);
+        float v = perlinNoiseObject.transform.localScale.x * 3 + perlinNoiseObject.transform.localScale.x / 2;
+        perlinNoiseObject.transform.position = new Vector3(v, 0, v);
     }
 
     private void AddSphereCollider(GameObject parent, int index)
@@ -180,12 +196,18 @@ public class PerlinNoise_Map : MonoBehaviour
         parent.tag = "MainBuilding";
     }
 
-    private float GenerateNoise(int x, int z, float detailScale)
+    private float GenerateNoise(int x, int z, float detailScale, bool building)
     {
         float xNoise = (x + this.transform.position.x) / detailScale;
         float zNoise = (z + this.transform.position.z) / detailScale;
 
-        return Mathf.PerlinNoise(xNoise, zNoise);
+        if(building)
+        {
+            return perlinNoiseObject.GetComponent<PerlinNoise>().perlin(x, z);
+        }
+
+        return perlinNoiseObject.GetComponent<PerlinNoise>().customPerlin(x, z);
+        //return Mathf.PerlinNoise(xNoise, zNoise);
     }
 
     IEnumerator BuildBlock(float time, float waitTime, GameObject go, Vector3 minT, Vector3 maxT)
@@ -199,6 +221,8 @@ public class PerlinNoise_Map : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
     }
+
+
 
 
 }
